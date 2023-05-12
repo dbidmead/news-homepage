@@ -211,11 +211,12 @@ hr {
     font-size: 11px; 
     text-align: center; 
     position: absolute;
-    bottom: 5px;
+    bottom: 2px;
     width: 100%;
 }
 
 .attribution a { 
-    color: hsl(228, 45%, 44%); 
+    color: var(--red-accent-color); 
     font-size: inherit;
+    text-decoration: none;
 }
