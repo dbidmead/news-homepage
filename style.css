@@ -47,6 +47,45 @@ body {
     display: none;
 }
 
+.sidebar {
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    display: flex;
+    background-color: rgba(0,0,0,0.3);
+    top: 0;
+    justify-content: flex-end;
+    transition: all 0.5s ease;
+    left: 100%;
+    opacity: 0;
+}
+
+.visible {
+    left: 0%;
+    opacity: 1;
+}
+
+.sidebar-content {
+    z-index: 5;
+    position: absolute;
+    top: 0;
+    height: 100vh;
+    background-color: var(--bg-color);
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 65%;
+    padding-left: 2rem;
+    padding-top: 11rem;
+}
+
+.sidebar-content a {
+    text-decoration: none;
+    color: inherit;
+    font-size: 1.25rem;
+    transition: all 0.2s ease;
+}
+
 .links {
     display: flex;
     justify-self: flex-end;
