@@ -31,27 +31,84 @@ Users should be able to:
 
 ## What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
-
-To see how you can add code snippets, see below:
+### Cool hamburger icon animation to reuse for the future
 
 ```html
-<h1>Some HTML code I'm proud of</h1>
+<div class="hamburger">
+  <div class="bar" id="a"></div>
+  <div class="bar" id="b"></div>
+  <div class="bar" id="c"></div>
+</div>
 ```
+
 ```css
-.proud-of-this-css {
-  color: papayawhip;
-}
+.hamburger {
+        display: flex;
+        flex-direction: column;
+        width: 4rem;
+        height: 4rem;
+        position: relative;
+        z-index: 100;
+    }
+
+    .bar {
+        position: absolute;
+        left: 25%;
+        top: 50%;
+        width: 3rem;
+        height: 3px;
+        background-color: black;
+        transition: all 400ms cubic-bezier(.84,.06,.52,1.8);
+    }
+
+    #a {
+        transform: translateY(-0.5rem);
+    } 
+
+    #c {
+        transform: translateY(0.5rem);
+    }
+
+    .active>#a {
+        transform: rotate(45deg);
+    }
+
+    .active>#b {
+        opacity: 0;
+    }
+
+    .active>#c {
+        transform: rotate(-45deg);
+    }
 ```
+
 ```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
+const hamburger = document.querySelector('.hamburger');
+
+hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+})
+```
+
+### CSS grid is awesome and easy to use
+
+For a simple 3x3 grid with equal-sized columns and row sizes of 300px, 200px, 100px and 25px gap between all grid cells
+```css
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 300px 200px 100px;
+  gap: 25px;
 }
 ```
 
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
-
-**Note: Delete this note and the content within this section and replace with your own learnings.**
+To make a div span 2 columns within its row, specify the grid LINE it starts at and grid LINE it ends at
+```css
+.cell {
+  grid-column: 1 / 3;
+}
+```
+Note that grid-row works the same way. The divs can still all be styled using display flex.
 
 ## Author
 
