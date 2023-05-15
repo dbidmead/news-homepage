@@ -110,6 +110,40 @@ To make a div span 2 columns within its row, specify the grid LINE it starts at 
 ```
 Note that grid-row works the same way. The divs can still all be styled using display flex.
 
+### To deal with the awful scrolling discrepancies on iOS Safari:
+- Set body overflow to hidden
+- Wrap entire site in a site wrapper div
+    - Set position to fixed
+    - Set width and height
+    - Set overflow-x:hidden, overflow-y: scroll
+    - Set top:0; bottom:0
+
+```html
+<body>
+    <div class="site-wrapper">
+        <!-- All site content -->
+    </div>
+</body>
+```
+
+```css
+body {
+    height: 100vh;
+    overflow: hidden;
+    width: 100%;
+}
+
+.site-container {
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+}
+```
+
 ## Author
 
 - GitHub - [@dbidmead](https://github.com/dbidmead)
